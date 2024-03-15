@@ -1,0 +1,45 @@
+public class ArbreBinaire {
+    private Integer clef;
+    private ArbreBinaire gauche;
+    private ArbreBinaire droite;
+    
+    // Constructeur sans paramètre pour créer l'arbre vide
+    public ArbreBinaire() {
+        this.clef = null;
+        this.gauche = null;
+        this.droite = null;
+    }
+    
+    // Singleton pour l'arbre vide
+    private static final ArbreBinaire arbreVide = new ArbreBinaire();
+    
+    // Getters et Setters
+    public Integer getClef() {
+        return clef;
+    }
+    
+    public void setClef(Integer clef) {
+        this.clef = clef;
+    }
+    
+    public ArbreBinaire getGauche() {
+        return gauche;
+    }
+    
+    public void setGauche(ArbreBinaire gauche) {
+        this.gauche = gauche;
+    }
+    
+    public ArbreBinaire getDroite() {
+        return droite;
+    }
+    
+    public void setDroite(ArbreBinaire droite) {
+        this.droite = droite;
+    }
+    
+    // Méthode pour créer l'arbre vide
+    public static ArbreBinaire creer() {
+        return arbreVide;
+    }
+}
