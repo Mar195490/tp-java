@@ -1,0 +1,50 @@
+public class ArbreBinaire {
+    // Méthode pour vérifier si l'arbre est vide
+    public boolean estVide() {
+        return this == arbreVide;
+    }
+    
+    // Méthode pour calculer la taille de l'arbre
+    public int taille() {
+        if (this.estVide()) {
+            return 0;
+        } else {
+            return 1 + this.gauche.taille() + this.droite.taille();
+        }
+    }
+    
+    // Méthode de recherche d'une valeur dans l'arbre
+    public boolean rechercher(int valeur) {
+        if (this.estVide()) {
+            return false;
+        } else if (this.clef == valeur) {
+            return true;
+        } else if (valeur < this.clef) {
+            return this.gauche.rechercher(valeur);
+        } else {
+            return this.droite.rechercher(valeur);
+        }
+    }
+    
+    // Méthode pour insérer une valeur dans l'arbre
+    public void inserer(int valeur) {
+        if (this.estVide()) {
+            this.clef = valeur;
+            this.gauche = new ArbreBinaire();
+            this.droite = new ArbreBinaire();
+        } else if (valeur < this.clef) {
+            this.gauche.inserer(valeur);
+        } else {
+            this.droite.inserer(valeur);
+        }
+    }
+    
+    // Méthode d'affichage de l'arbre (parcours infixé)
+    public void afficher() {
+        if (!this.estVide()) {
+            this.gauche.afficher();
+            System.out.print(this.clef + " ");
+            this.droite.afficher();
+        }
+    }
+}
